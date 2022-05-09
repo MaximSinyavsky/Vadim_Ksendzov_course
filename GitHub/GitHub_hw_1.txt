@@ -4,7 +4,7 @@ JSON
  1. Создать внешний репозиторий c названием JSON.
  	-перейти по ссылке https://github.com/
  	-нажать кнопку "NEW"
- 	-в поле "Repository name" ввести JSON
+ 	-в поле "Repository name" ввести "JSON"
  	-отметить галочкой "Add a README file"
  	-нажать кнопку "Create repository"
  2. Клонировать репозиторий JSON на локальный компьютер.
@@ -94,7 +94,7 @@ JSON
  15. На веб интерфейсе модифицировать файл bug_report.json, добавить баг репорт в формате JSON.
  	-перейти по ссылке https://github.com/MaximSinyavsky/JSON/blob/main/bug_report.json
  	-нажать кнопу "Edit this file"
- 		{
+ 			{
 		  "ID":"1",
 		  "title":"Не Работает кнопка оплаты",
 		  "step to reproduce":"пройти по ссылке..., добавить товар в корзину, перейти в корзину, нажать кнопку для оплаты....",
@@ -115,23 +115,123 @@ JSON
 	
 XML
  1. Создать внешний репозиторий c названием XML.
+  	-перейти по ссылке https://github.com/
+ 	-нажать кнопку "NEW"
+ 	-в поле "Repository name" ввести "XML"
+ 	-отметить галочкой "Add a README file"
+ 	-нажать кнопку "Create repository"
  2. Клонировать репозиторий XML на локальный компьютер.
+  	-перейти по ссылке https://github.com/MaximSinyavsky/XML
+ 	-нажать кнопку "code"
+ 	-в вкладке https скопировать URL
+ 	-в окне gitbush ввести:
+ 	$ git clone https://github.com/MaximSinyavsky/XML.git
  3. Внутри локального XML создать файл “new.xml”.
+ 	$ > new.xml
  4. Добавить файл под гит.
+ 	$ git add new.xml
  5. Закоммитить файл.
+ 	$ git commit -m "add new.xml"	
  6. Отправить файл на внешний GitHub репозиторий.
+ 	$ git push
  7. Отредактировать содержание файла “new.xml” - написать информацию о себе (ФИО, возраст, количество домашних животных, будущая желаемая зарплата). Всё написать в формате XML.
+  	$ vim new.json
+ 		-нажимаем "i"
+		<?xml version="1.0" encoding="UTF-8"?>
+			<new>
+				<name>My name is Maxim.</name>
+				<age>I am 30 years old.</age> 
+				<pet>I have one pet.</pet> 
+				<salary>Desired salary is 1000$.</salary>
+			</new>
+		-нажимаем "esc", пишим ":wq", нажимаем "enter"
  8. Отправить изменения на внешний репозиторий.
+  	$ git commit -am "update new.xml"
+	$ git push
  9. Создать файл preferences.xml
+  	$ > preferences.xml
  10. В файл preferences.xml добавить информацию о своих предпочтениях (Любимый фильм, любимый сериал, любимая еда, любимое время года, сторона которую хотели бы посетить) в формате XML.
+  		$ vim preferences.json
+ 		-нажимаем "i"
+	 		<?xml version="1.0" encoding="UTF-8"?>	
+			 	<preferences>
+					<muvie>My favorite movie is Avengers.</muvie>
+					<series>My favorite series is Supernatural.</series> 
+					<food>My favorite food is meat.</food> 
+					<season>My favorite time of year is summer.</season> 
+					<country>I want to visit Italy.</country>
+				</preferences>
+		-нажимаем "esc", пишим ":wq", нажимаем "enter"
  11. Создать файл sklls.xml добавить информацию о скиллах которые будут изучены на курсе в формате XML
+ 	  	$ vim skills.json
+ 		-нажимаем "i"
+			<?xml version="1.0" encoding="UTF-8"?>
+			<skills> 
+				<title>В рамках данного курса будут изучены:</title>
+					<skills1>Базовая теория (Что такое тестирование, багрепорты, документация, виды, методы, направления тестирования и т.п.) SDLC, STLC.</skills1>
+					<skills2>Что такое клиент-серверная архитектура</skills2>
+					<skills3>HTTP Методы запросов на сервер</skills3>
+					<skills4>Коды ответов HTTP сервера.</skills4>
+					<skills5>Структуры HTTP запросов и ответов.</skills5>
+					<skills6>Что такое JSON, XML. Их структура.</skills6>
+					<skills7>Тестирование API через Postman (JS, автотесты API).</skills7>
+					<skills8>Снятие и чтение логов с внешнего сервера.</skills8>
+					<skills9>Сниффинг http web трафика через Charles и Fiddler.</skills9>
+					<skills10>Dev Tools веб браузеров (Google Chrome, FireFox).</skills10>
+					<skills11>VPN. (Как работает, зачем нужен, как использовать, варианты инструментов)</skills11>
+					<skills12>Мобильное тестирование.</skills12>
+					<skills13>Особенность iOS, Android, гайдлайны.</skills13>
+					<skills14>Сборка iOS приложений на XCode. (У кого нет Mac компьютера, просто посмотрят)</skills14>
+					<skills15>Сборка Android приложений на Android Studio.</skills15>
+					<skills16>ADB (управление андроид девайсами).</skills16>
+					<skills17>Настройка прокси и vpn на iOS и Android.</skills17>
+					<skills18>Перехват (сниффинг) мобильного трафика через Charles и Fiddler на iOS и Android.</skills18>
+					<skills19>Командная строка (terminal) Linux (копирование, создание, просмотр, перемещение файлов на серверах без графического интерфейса)</skills19>
+					<skills20>Основы bash скриптинг, автоматизация рутинных задач на сервере.</skills20>
+					<skills21>Доступ к удалённым серверам.</skills21>
+					<skills22>Основы SQL (Create, Delete, Drop, Insert Into, Select, From, Where, Join).</skills22>
+					<skills23>База данных Postgres (установка, настройка и использование).</skills23>
+					<skills24>Нереляционная база данных Redis (установка, настройка и использование).</skills24>
+					<skills25>Нагрузочное тестирование в Jmeter.</skills25>
+					<skills26>Методология разработки Scrum.</skills26>
+					<skills27>Python. (Изучение основ. Создание клиент серверного приложения)</skills27>
+			</skills>
+		-нажимаем "esc", пишим ":wq", нажимаем "enter"
  12. Сделать коммит в одну строку.
+	$ git add . | xargs git commit -m "add preferences and skills xml"
  13. Отправить сразу 2 файла на внешний репозиторий.
+ 	$ git push
  14. На веб интерфейсе создать файл bug_report.xml.
+  	-перейти по ссылке https://github.com/MaximSinyavsky/XML
+ 	-нажать кнопку "add file"
+ 	-из развернувшегося списка выбрать "Create new file"
+ 	-в поле "name your file..." ввести bug_report.xml
  15. Сделать Commit changes (сохранить) изменения на веб интерфейсе.
+ 	-в поле "Commit new file" ввести "create new file"
+ 	-нажать кнопку "Commit new file"
  16. На веб интерфейсе модифицировать файл bug_report.xml, добавить баг репорт в формате XML.
+ 	-перейти по ссылке https://github.com/MaximSinyavsky/XML/blob/main/bug_report.xml
+ 	-нажать кнопу "Edit this file"
+		<?xml version="1.0" encoding="UTF-8"?>
+		  <XML>
+		    <id>1</id> 
+		    <title or summary>Не работает кнопка оплаты</title or summary>
+		    <environment>Операционная система Win 10, browser Chrome 10.1</environment>
+		    <step to reproduce>пройти по ссылке..., добавить товар в корзину, перейти в корзину, нажать кнопку для оплаты....</step to reproduce>
+		    <expected results>Прошла оплата</expected results>
+		    <actual results>Ничего не происходит, деньги не списываются</actual results>
+		    <priority>high</priority>
+		    <severity>blocker</severity>
+		    <attachment>скриншоты</attachment>
+		    <work around>нет</work around>
+		    <reporter>Синявский Максим</reporter>
+		  </XML>
  17. Сделать Commit changes (сохранить) изменения на веб интерфейсе.
+   	-в поле "Commit new file" ввести "update new file"
+ 	-нажать кнопку "Commit new file"
  18. Синхронизировать внешний и локальный репозиторий XML
+ 	$ git fetch
+	$ git pull
 
 TXT
  1. Создать внешний репозиторий c названием TXT.
