@@ -235,20 +235,109 @@ XML
 
 TXT
  1. Создать внешний репозиторий c названием TXT.
+  	-перейти по ссылке https://github.com/
+ 	-нажать кнопку "NEW"
+ 	-в поле "Repository name" ввести "TXT"
+ 	-отметить галочкой "Add a README file"
+ 	-нажать кнопку "Create repository"
  2. Клонировать репозиторий TXT на локальный компьютер.
+  	-перейти по ссылке https://github.com/MaximSinyavsky/TXT
+ 	-нажать кнопку "code"
+ 	-в вкладке https скопировать URL
+ 	-в окне gitbush ввести:
+ 	$ git clone https://github.com/MaximSinyavsky/TXT.git
  3. Внутри локального TXT создать файл “new.txt”.
+  	$ > new.txt
  4. Добавить файл под гит.
+ 	$ git add new.txt
  5. Закоммитить файл.
+ 	$ git commit -m "add new.txt"
  6. Отправить файл на внешний GitHub репозиторий.
+ 	$ git push
  7. Отредактировать содержание файла “new.txt” - написать информацию о себе (ФИО, возраст, количество домашних животных, будущая желаемая зарплата). Всё написать в формате TXT.
+  	$ vim new.json
+ 		-нажимаем "i"
+ 		My name is Maxim. 
+		I am 30 years old. 
+		I have one pet. 
+		My cat's name is Vegas. 
+		Desired salary is 1000$.
+		-нажимаем "esc", пишим ":wq", нажимаем "enter"
  8. Отправить изменения на внешний репозиторий.
+  	$ git commit -am "Update new.txt"
+	$ git push
  9. Создать файл preferences.txt
+ 	$ > preferences.txt
  10. В файл preferences.txt” добавить информацию о своих предпочтениях (Любимый фильм, любимый сериал, любимая еда, любимое время года, сторона которую хотели бы посетить) в формате TXT.
+   	$ vim preferences.txt
+ 		-нажимаем "i"
+		My favorite movie is Avengers. 
+		My favorite series is Supernatural. 
+		My favorite food is meat. 
+		My favorite time of year is summer. 
+		I want to visit Italy.
+		-нажимаем "esc", пишим ":wq", нажимаем "enter"
  11. Создать файл sklls.txt добавить информацию о скиллах которые будут изучены на курсе в формате TXT
+    	$ vim skills.txt
+ 		-нажимаем "i"
+		 		В рамках данного курса будут изучены:
+		1. Базовая теория (Что такое тестирование, багрепорты, документация, виды, методы, направления тестирования и т.п.) SDLC, STLC.
+		2. Что такое клиент-серверная архитектура.
+		3. HTTP Методы запросов на сервер.
+		4. Коды ответов HTTP сервера.
+		5. Структуры HTTP запросов и ответов.
+		6. Что такое JSON, XML. Их структура.
+		7. Тестирование API через Postman (JS, автотесты API).
+		8. Снятие и чтение логов c внешнего сервера.
+		9. Снифинг http web трафика через Charles и Fiddler.
+		10. Dev Tools веб браузеров (Google Chrome, FireFox).
+		11. VPN. (Как работает, зачем нужен, как использовать, варианты инструментов)
+		12. Мобильное тестирование.
+		13. Особенность iOS, Android, гайдлайны.
+		14. Сборка iOS приложений на XCode. (У кого нет Mac компьютера, просто посмотрят)
+		15. Сборка Android приложений на Android Studio.
+		16. ADB (управление андройд девайсами).
+		17. Настройка прокси и vpn на iOS и Android.
+		18. Перехват (сниффинг) мобильного трафика через Charles и Fiddler на iOS и Android.
+		19. Командная строка (terminal) Linux (копирование, создание, просмотр, перемещение файлов на серверах без графического интерфейса)
+		20. Основы bash скриптинг, автоматизация рутинных задач на сервере.
+		21. Доступ к удалённым серверам.
+		22. Основы SQL (Create, Delete, Drop, Insert Into, Select, From, Where, Join).
+		23. База данных Postgres (установка, настройка и использование).
+		24. Нереляционная база данных Redis (установка, настройка и использование).
+		25. Нагрузочное тестирование в Jmeter.
+		26. Методология разработки Scrum.
+		27. Python. (Изучение основ. Создание клиент серверного приложения)
+		-нажимаем "esc", пишим ":wq", нажимаем "enter"
  12. Сделать коммит в одну строку.
+ 	$ git add . && git commit -m "add preferences and skils txt"
  13. Отправить сразу 2 файла на внешний репозиторий.
+ 	$ git push
  14. На веб интерфейсе создать файл bug_report.txt.
+ 	-перейти по ссылке https://github.com/MaximSinyavsky/TXT
+ 	-нажать кнопку "add file"
+ 	-из развернувшегося списка выбрать "Create new file"
+ 	-в поле "name your file..." ввести bug_report.txt
  15. Сделать Commit changes (сохранить) изменения на веб интерфейсе.
+  	-в поле "Commit new file" ввести "create new file"
+ 	-нажать кнопку "Commit new file"
  16. На веб интерфейсе модифицировать файл bug_report.txt, добавить баг репорт в формате TXT.
+  	-перейти по ссылке https://github.com/MaximSinyavsky/TXT/blob/main/bug_report.txt
+ 	-нажать кнопу "Edit this file"
+		id -1 
+		titles or summary- Не работает кнопка оплаты
+		environment- Операционная система Win 10, browser Chrome 10.1
+		step to reproduce- пройти по ссылке..., добавить товар в корзину, перейти в корзину, нажать кнопку для оплаты....
+		expected results-Прошла оплата
+		actual results-Ничего не происходит, деньги не списываются 
+		priority-high
+		severity-blocker
+		attachment-скриншоты
+		work around-нет
+		reporter-Максим
  17. Сделать Commit changes (сохранить) изменения на веб интерфейсе.
+    	-в поле "Commit new file" ввести "update new file"
+ 	-нажать кнопку "Commit new file"
  18. Синхронизировать внешний и локальный репозиторий TXT
+  	$ git fetch
+	$ git pull
