@@ -3,6 +3,6 @@
 1. [Linux terminal (GitBush) №1](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/Linux_terminal/Lunix_therminal_hw_1)
 2. Linux terminal (GitBush) №2
 3. [GitHub №1](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/GitHub/GitHub_hw_1)
-4. GitHub №2
+4. [GitHub №2](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/GitHub/GitHub_hw_2)
 5. JavaScript №1
 6. JavaScript №2
