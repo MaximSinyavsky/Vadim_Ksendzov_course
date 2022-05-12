@@ -7,3 +7,5 @@
 5. [JavaScript №1](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/JavaScript/JavaScript_hw_1);
 6. JavaScript №1*;
 7. JavaScript №2;
+8. [Postman №1](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/Postman/Postman_hw_1)
+9. [Postman №2](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/Postman/Postman_hw_2)
