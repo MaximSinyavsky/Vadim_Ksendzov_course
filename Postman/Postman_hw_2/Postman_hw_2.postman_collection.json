@@ -36,7 +36,7 @@
 					"formdata": []
 				},
 				"url": {
-					"raw": "{{url}}:{{port}}\\first",
+					"raw": "{{url}}:{{port}}/first",
 					"host": [
 						"{{url}}"
 					],
@@ -143,7 +143,7 @@
 					]
 				},
 				"url": {
-					"raw": "{{url}}:{{port}}\\user_info_3",
+					"raw": "{{url}}:{{port}}/user_info_3",
 					"host": [
 						"{{url}}"
 					],
@@ -157,17 +157,86 @@
 		},
 		{
 			"name": "http://162.55.220.72:5005/object_info_3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Статус код 200;\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"//Спарсить request:\r",
+							"var requestData = pm.request.url.query.toObject();\r",
+							"//Спарсить request:\r",
+							"var responseData = pm.response.json();\r",
+							"//Проверить, что name в ответе равно name s request (name забрать из request):\r",
+							"pm.test(\"response name equals request name\", function () {\r",
+							"    pm.expect(responseData.name).to.eql(requestData.name)\r",
+							"});\r",
+							"//Проверить, что age в ответе равно age s request (age забрать из request):\r",
+							"pm.test(\"response age equals request age\", function () {\r",
+							"    pm.expect(responseData.age).to.eql(requestData.age)\r",
+							"});\r",
+							"//Проверить, что salary в ответе равно salary s request (salary забрать из request):\r",
+							"pm.test(\"response salary equals request salary\", function (){\r",
+							"    pm.expect(responseData.salary).to.eql(+requestData.salary)\r",
+							"});\r",
+							"//Вывести в консоль параметр family из response:\r",
+							"console.log(responseData.family);\r",
+							"//Проверить, что у параметра dog есть параметры name:\r",
+							"pm.test(\"dog have parameter name\", function(){\r",
+							"    pm.expect(responseData.family.pets.dog).to.have.property(\"name\")\r",
+							"});\r",
+							"//Проверить, что у параметра dog есть параметры age:\r",
+							"pm.test(\"dog have parameter age\",function(){\r",
+							"    pm.expect(responseData.family.pets.dog).to.have.property(\"age\")\r",
+							"});\r",
+							"//Проверить, что параметр name имеет значение Luky:\r",
+							"pm.test(\"name have parameter Luky v1\", function(){\r",
+							"    pm.expect(responseData.family.pets.dog.name).to.eql(\"Luky\")\r",
+							"});\r",
+							"pm.test(\"name have parameter Luky v2\", function(){\r",
+							"    pm.expect(responseData.family.pets.dog).to.include({\"name\":\"Luky\"})\r",
+							"});\r",
+							"//Проверить, что параметр age имеет значение 4:\r",
+							"pm.test(\"age have parameter 4 v1\", function(){\r",
+							"    pm.expect(responseData.family.pets.dog.age).to.eql(4)\r",
+							"});\r",
+							"pm.test(\"age have parameter 4 v2\", function(){\r",
+							"    pm.expect(responseData.family.pets.dog).to.include({\"age\": 4})\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}:{{port}}\\object_info_3",
+					"raw": "{{url}}:{{port}}/object_info_3?name=Maxim&age=30&salary=2000",
 					"host": [
 						"{{url}}"
 					],
 					"port": "{{port}}",
 					"path": [
 						"object_info_3"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Maxim"
+						},
+						{
+							"key": "age",
+							"value": "30"
+						},
+						{
+							"key": "salary",
+							"value": "2000"
+						}
 					]
 				}
 			},
@@ -179,7 +248,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}:{{port}}\\object_info_4",
+					"raw": "{{url}}:{{port}}/object_info_4",
 					"host": [
 						"{{url}}"
 					],
@@ -197,7 +266,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}:{{port}}\\user_info_2",
+					"raw": "{{url}}:{{port}}/user_info_2",
 					"host": [
 						"{{url}}"
 					],
