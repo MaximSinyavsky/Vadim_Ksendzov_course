@@ -287,11 +287,9 @@
 							"//Передать в окружение переменную salary:\r",
 							"pm.environment.set(\"salary\", responseData.salary[0]);\r",
 							"//Написать цикл который выведет в консоль по порядку элементы списка из параметра salary:\r",
-							"let i = 0;\r",
-							"while(i<responseData.salary.length){\r",
+							"for (i in responseData.salary){\r",
 							"    console.log(responseData.salary[i])\r",
-							"    i++\r",
-							"};"
+							"}"
 						],
 						"type": "text/javascript"
 					}
@@ -403,10 +401,8 @@
 							"    pm.expect(responseData.person.u_salary_5_years).to.eql(+requestData.salary*4.2)\r",
 							"});\r",
 							"//***Написать цикл который выведет в консоль по порядку элементы списка из параметра person:\r",
-							"let i = 0;\r",
-							"while(i<responseData.person.u_name.length){\r",
-							"    console.log(responseData.person.u_name[i])\r",
-							"    i++\r",
+							"for (i in responseData.person){\r",
+							"    console.log(i, responseData.person[i])\r",
 							"}"
 						],
 						"type": "text/javascript"
