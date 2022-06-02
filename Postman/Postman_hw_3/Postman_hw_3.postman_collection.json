@@ -7,9 +7,36 @@
 	"item": [
 		{
 			"name": "http://162.55.220.72:5005/login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var responseData = pm.response.json();\r",
+							"pm.environment.set(\"token\", responseData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "login",
+							"value": "Maxim",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "Sinyavsky",
+							"type": "default"
+						}
+					]
+				},
 				"url": {
 					"raw": "http://162.55.220.72:5005/login",
 					"protocol": "http",
@@ -29,9 +56,67 @@
 		},
 		{
 			"name": "http://162.55.220.72:5005/user_info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//1) Статус код 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"//2) Проверка структуры json в ответе.\r",
+							"var responseDate = pm.response.json();\r",
+							"var requestDate = JSON.parse(request.data);\r",
+							"// pm.test(\"start_qa_salary in JSON\", function(){\r",
+							"//     pm.expect(responseDate).to.have.property(\"start_qa_salary\")\r",
+							"// });\r",
+							"// pm.test(\"start_qa_salary and value in JSON\", function(){\r",
+							"//     pm.expect(responseDate).to.have.include({\"start_qa_salary\": requestDate.salary})\r",
+							"// });\r",
+							"// pm.test(\"qa_salary_after_6_months in JSON\", function(){\r",
+							"//     pm.expect(responseDate).to.have.property(\"qa_salary_after_6_months\")\r",
+							"// });\r",
+							"// pm.test(\"qa_salary_after_6_months and value in JSON\", function(){\r",
+							"//     pm.expect(responseDate).to.have.include({\"qa_salary_after_6_months\": requestDate.salary*2})\r",
+							"// });\r",
+							"// pm.test(\"peson in JSON\", function(){\r",
+							"//     pm.expect(responseDate).to.have.property(\"person\")\r",
+							"// });\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"//3) В ответе указаны коэффициенты умножения salary, напишите тесты по проверке правильности результата перемножения на коэффициент.\r",
+							"pm.test(\"qa_salary_after_6_months multiplication check\", function(){\r",
+							"    pm.expect(requestDate.salary*2).to.have.eql(responseDate.qa_salary_after_6_months)\r",
+							"});\r",
+							"pm.test(\"qa_salary_after_12_months multiplication check\", function(){\r",
+							"    pm.expect(requestDate.salary*2.9).to.have.eql(responseDate.qa_salary_after_12_months)\r",
+							"});\r",
+							"pm.test(\"u_salary_1.5_year multiplication check\", function(){\r",
+							"    pm.expect(requestDate.salary*4).to.have.eql(responseDate.person.u_salary_1_5_year)\r",
+							"});\r",
+							"//4) Достать значение из поля 'u_salary_1.5_year' и передать в поле salary запроса http://162.55.220.72:5005/get_test_user\r",
+							"pm.environment.set(\"salary\", responseDate.person.u_salary_1_5_year);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"age\": 30,\r\n    \"salary\": 2000,\r\n    \"name\": \"Maxim\",\r\n    \"auth_token\": \"{{token}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "http://162.55.220.72:5005/user_info",
 					"protocol": "http",
@@ -51,9 +136,66 @@
 		},
 		{
 			"name": "http://162.55.220.72:5005/new_data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//1) Статус код 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"//2) Проверка структуры json в ответе.\r",
+							"var responseDate = pm.response.json();\r",
+							"var requestData = request.data;\r",
+							"\r",
+							"//3) В ответе указаны коэффициенты умножения salary, напишите тесты по проверке правильности результата перемножения на коэффициент.\r",
+							"pm.test(\"salary check\", function(){\r",
+							"    pm.expect(responseDate.salary[0]).to.have.eql(+requestData.salary)\r",
+							"});\r",
+							"pm.test(\"salary*2 check\", function(){\r",
+							"    pm.expect(+responseDate.salary[1]).to.have.eql(requestData.salary*2)\r",
+							"});\r",
+							"pm.test(\"salary*3 check\", function(){\r",
+							"    pm.expect(+responseDate.salary[2]).to.have.eql(requestData.salary*3)\r",
+							"});\r",
+							"//4) проверить, что 2-й элемент массива salary больше 1-го и 0-го\r",
+							"pm.test(\"secons elemet is greater than first element\", function(){\r",
+							"    pm.expect(responseDate.salary[2]>responseDate.salary[1]).to.be.true\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "30",
+							"type": "default"
+						},
+						{
+							"key": "salary",
+							"value": "2000",
+							"type": "default"
+						},
+						{
+							"key": "name",
+							"value": "str",
+							"type": "default"
+						},
+						{
+							"key": "auth_token",
+							"value": "{{token}}",
+							"type": "default"
+						}
+					]
+				},
 				"url": {
 					"raw": "http://162.55.220.72:5005/new_data",
 					"protocol": "http",
@@ -73,9 +215,61 @@
 		},
 		{
 			"name": "http://162.55.220.72:5005/test_pet_info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//1) Статус код 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"//2) Проверка структуры json в ответе.\r",
+							"var responseDate = pm.response.json();\r",
+							"var requestData = request.data;\r",
+							"\r",
+							"\r",
+							"//3) В ответе указаны коэффициенты умножения weight, напишите тесты по проверке правильности результата перемножения на коэффициент.\r",
+							"pm.test(\"check daily_food\", function(){\r",
+							"    pm.expect(responseDate.daily_food/requestData.weight).to.have.eql(0.012)\r",
+							"});\r",
+							"pm.test(\"daily_sleep\", function(){\r",
+							"    pm.expect(responseDate.daily_sleep/requestData.weight).to.have.eql(2.5)\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "30",
+							"type": "default"
+						},
+						{
+							"key": "weight",
+							"value": "88",
+							"type": "default"
+						},
+						{
+							"key": "name",
+							"value": "Maxim",
+							"type": "default"
+						},
+						{
+							"key": "auth_token",
+							"value": "{{token}}",
+							"type": "default"
+						}
+					]
+				},
 				"url": {
 					"raw": "http://162.55.220.72:5005/test_pet_info",
 					"protocol": "http",
@@ -95,9 +289,56 @@
 		},
 		{
 			"name": "http://162.55.220.72:5005/get_test_user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// 1) Статус код 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"// 2) Проверка структуры json в ответе.\r",
+							"var responseDate = pm.response.json();\r",
+							"var requestData = request.data;\r",
+							"\r",
+							"// 3) Проверить что занчение поля name = значению переменной name из окружения\r",
+							"\r",
+							"// 4) Проверить что занчение поля age в ответе соответсвует отправленному в запросе значению поля age\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "30",
+							"type": "default"
+						},
+						{
+							"key": "salary",
+							"value": "2000",
+							"type": "default"
+						},
+						{
+							"key": "name",
+							"value": "Maxim",
+							"type": "default"
+						},
+						{
+							"key": "auth_token",
+							"value": "{{token}}",
+							"type": "default"
+						}
+					]
+				},
 				"url": {
 					"raw": "http://162.55.220.72:5005/get_test_user",
 					"protocol": "http",
