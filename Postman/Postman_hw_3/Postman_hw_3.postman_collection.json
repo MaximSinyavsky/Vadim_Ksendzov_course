@@ -121,7 +121,7 @@
 							"    pm.expect(requestDate.salary*4).to.have.eql(responseDate.person.u_salary_1_5_year)\r",
 							"});\r",
 							"//4) Достать значение из поля 'u_salary_1.5_year' и передать в поле salary запроса http://162.55.220.72:5005/get_test_user\r",
-							"pm.environment.set(\"salary\", responseDate.person.u_salary_1_5_year);"
+							"pm.environment.set(\"u_salary_1.5_year\", responseDate.person.u_salary_1_5_year);"
 						],
 						"type": "text/javascript"
 					}
@@ -219,23 +219,23 @@
 					"formdata": [
 						{
 							"key": "age",
-							"value": "30",
-							"type": "default"
+							"value": "{{age}}",
+							"type": "text"
 						},
 						{
 							"key": "salary",
-							"value": "2000",
-							"type": "default"
+							"value": "{{salary}}",
+							"type": "text"
 						},
 						{
 							"key": "name",
-							"value": "Maxim",
-							"type": "default"
+							"value": "{{name}}",
+							"type": "text"
 						},
 						{
 							"key": "auth_token",
 							"value": "{{token}}",
-							"type": "default"
+							"type": "text"
 						}
 					]
 				},
@@ -290,7 +290,6 @@
 							"            \"type\": \"number\"\r",
 							"        }\r",
 							"    }\r",
-							"\r",
 							"};\r",
 							"pm.test(\"Check json schema\", function(){\r",
 							"    pm.response.to.have.jsonSchema(schema)\r",
@@ -303,8 +302,7 @@
 							"});\r",
 							"pm.test(\"daily_sleep\", function(){\r",
 							"    pm.expect(responseDate.daily_sleep/requestData.weight).to.have.eql(2.5)\r",
-							"});\r",
-							""
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -318,7 +316,7 @@
 					"formdata": [
 						{
 							"key": "age",
-							"value": "30",
+							"value": "{{age}}",
 							"type": "default"
 						},
 						{
@@ -328,7 +326,7 @@
 						},
 						{
 							"key": "name",
-							"value": "Maxim",
+							"value": "{{name}}",
 							"type": "default"
 						},
 						{
@@ -380,10 +378,10 @@
 							"            \"type\": \"string\"\r",
 							"        },\r",
 							"        \"age\": {\r",
-							"            \"type\": \"string\"\r",
+							"            \"type\": \"integer\"\r",
 							"        },\r",
 							"        \"salary\": {\r",
-							"            \"type\": \"string\"\r",
+							"            \"type\": \"integer\"\r",
 							"        },\r",
 							"        \"family\": {\r",
 							"            \"type\": \"object\",\r",
@@ -409,13 +407,12 @@
 							"var responseDate = pm.response.json();\r",
 							"var requestData = request.data;\r",
 							"pm.test(\"requestName equel responseName\", function(){\r",
-							"    pm.expect(responseDate.name).to.have.eql(responseDate.name)\r",
+							"    pm.expect(responseDate.name).to.have.eql(pm.environment.get(\"name\"))\r",
 							"});\r",
 							"// 4) Проверить что занчение поля age в ответе соответсвует отправленному в запросе значению поля age\r",
 							"pm.test(\"requestAge equel responseAge\", function(){\r",
 							"    pm.expect(responseDate.age).to.have.eql(responseDate.age)\r",
-							"});\r",
-							""
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -429,17 +426,17 @@
 					"formdata": [
 						{
 							"key": "age",
-							"value": "30",
+							"value": "{{age}}",
 							"type": "default"
 						},
 						{
 							"key": "salary",
-							"value": "2000",
+							"value": "{{u_salary_1.5_year}}",
 							"type": "default"
 						},
 						{
 							"key": "name",
-							"value": "Maxim",
+							"value": "{{name}}",
 							"type": "default"
 						},
 						{
@@ -485,8 +482,18 @@
 				}
 			],
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "auth_token",
+							"value": "{{token}}",
+							"type": "default"
+						}
+					]
+				},
 				"url": {
 					"raw": "http://162.55.220.72:5005/currency",
 					"protocol": "http",
