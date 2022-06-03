@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "41bd9f2e-ac86-4d73-a54e-566ef40b31da",
+		"_postman_id": "1c90ef3d-a784-4b4a-b0c1-54938d702144",
 		"name": "Postman_hw_3",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -367,12 +367,54 @@
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"// 2) Проверка структуры json в ответе.\r",
+							"var schema = {\r",
+							"    \"type\": \"object\",\r",
+							"    \"required\": [\r",
+							"        \"name\",\r",
+							"        \"age\",\r",
+							"        \"salary\",\r",
+							"        \"family\"\r",
+							"    ],\r",
+							"    \"properties\": {\r",
+							"        \"name\": {\r",
+							"            \"type\": \"string\"\r",
+							"        },\r",
+							"        \"age\": {\r",
+							"            \"type\": \"string\"\r",
+							"        },\r",
+							"        \"salary\": {\r",
+							"            \"type\": \"string\"\r",
+							"        },\r",
+							"        \"family\": {\r",
+							"            \"type\": \"object\",\r",
+							"            \"required\": [\r",
+							"                \"children\",\r",
+							"                \"u_salary_1.5_year\"\r",
+							"            ],\r",
+							"            \"properties\": {\r",
+							"                \"children\": {\r",
+							"                    \"type\": \"array\"\r",
+							"                },\r",
+							"                \"u_salary_1.5_year\": {\r",
+							"                    \"type\": \"integer\"\r",
+							"                }\r",
+							"            }\r",
+							"        }\r",
+							"    }\r",
+							"};\r",
+							"pm.test(\"Check json schema\", function(){\r",
+							"    pm.response.to.have.jsonSchema(schema)\r",
+							"});\r",
+							"// 3) Проверить что занчение поля name = значению переменной name из окружения\r",
 							"var responseDate = pm.response.json();\r",
 							"var requestData = request.data;\r",
-							"\r",
-							"// 3) Проверить что занчение поля name = значению переменной name из окружения\r",
-							"\r",
+							"pm.test(\"requestName equel responseName\", function(){\r",
+							"    pm.expect(responseDate.name).to.have.eql(responseDate.name)\r",
+							"});\r",
 							"// 4) Проверить что занчение поля age в ответе соответсвует отправленному в запросе значению поля age\r",
+							"pm.test(\"requestAge equel responseAge\", function(){\r",
+							"    pm.expect(responseDate.age).to.have.eql(responseDate.age)\r",
+							"});\r",
 							""
 						],
 						"type": "text/javascript"
@@ -426,6 +468,22 @@
 		},
 		{
 			"name": "http://162.55.220.72:5005/currency",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"Тесты:\r",
+							"// 1) Можете взять любой объект из присланного списка, используйте js random.\r",
+							"\r",
+							"\r",
+							"// В объекте возьмите Cur_ID и передать через окружение в следующий запрос.\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -448,6 +506,19 @@
 		},
 		{
 			"name": "http://162.55.220.72:5005/curr_byn",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// 1) Статус код 200\r",
+							"\r",
+							"// 2) Проверка структуры json в ответе."
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
