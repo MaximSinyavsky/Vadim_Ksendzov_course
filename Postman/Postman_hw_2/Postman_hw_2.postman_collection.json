@@ -25,16 +25,9 @@
 					}
 				}
 			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": []
-				},
 				"url": {
 					"raw": "{{url}}:{{port}}/first",
 					"host": [
@@ -67,7 +60,7 @@
 							"});\r",
 							"//Проверить, что age в ответе равно age s request (age вбить руками):\r",
 							"pm.test(\"manual request age equals response age\", function(){\r",
-							"    pm.expect(+responseData.age).to.eql(30)\r",
+							"    pm.expect(responseData.age).to.eql(30)\r",
 							"});\r",
 							"//Проверить, что salary в ответе равно salary s request (salary вбить руками):\r",
 							"pm.test(\"manual request salary equals response salary\", function(){\r",
@@ -81,7 +74,7 @@
 							"});\r",
 							"//Проверить, что age в ответе равно age s request (age забрать из request):\r",
 							"pm.test(\"request age equals response age\", function () {\r",
-							"    pm.expect(requestData.age).to.eql(responseData.age)\r",
+							"    pm.expect(+requestData.age).to.eql(responseData.age)\r",
 							"});\r",
 							"//Проверить, что salary в ответе равно salary s request (salary забрать из request):\r",
 							"pm.test(\"request salary equals response salary\", function () {\r",
@@ -91,7 +84,7 @@
 							"console.log(responseData.family);\r",
 							"//Проверить что u_salary_1_5_year в ответе равно salary*4 (salary забрать из request):\r",
 							"pm.test(\"u_salary_1_5_year in responseData equals salary*4\", function(){\r",
-							"    pm.expect(responseData.family.u_salary_1_5_year).to.eql(+requestData.salary*4)\r",
+							"    pm.expect(responseData.family.u_salary_1_5_year).to.eql(requestData.salary*4)\r",
 							"});\r",
 							"\r",
 							"\r",
@@ -111,24 +104,18 @@
 					"formdata": [
 						{
 							"key": "name",
-							"value": "Maxim",
+							"value": "{{name}}",
 							"type": "default"
 						},
 						{
 							"key": "age",
-							"value": "30",
+							"value": "{{age}}",
 							"type": "default"
 						},
 						{
 							"key": "salary",
-							"value": "2000",
+							"value": "{{salary}}",
 							"type": "default"
-						},
-						{
-							"key": "aut_toket",
-							"value": "{{token}}",
-							"type": "default",
-							"disabled": true
 						}
 					]
 				},
@@ -166,7 +153,7 @@
 							"});\r",
 							"//Проверить, что age в ответе равно age s request (age забрать из request):\r",
 							"pm.test(\"response age equals request age\", function () {\r",
-							"    pm.expect(responseData.age).to.eql(requestData.age)\r",
+							"    pm.expect(responseData.age).to.eql(+requestData.age)\r",
 							"});\r",
 							"//Проверить, что salary в ответе равно salary s request (salary забрать из request):\r",
 							"pm.test(\"response salary equals request salary\", function (){\r",
@@ -206,7 +193,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}:{{port}}/object_info_3?name=Maxim&age=30&salary=2000",
+					"raw": "{{url}}:{{port}}/object_info_3?name={{name}}&age={{age}}&salary={{salary}}",
 					"host": [
 						"{{url}}"
 					],
@@ -217,15 +204,15 @@
 					"query": [
 						{
 							"key": "name",
-							"value": "Maxim"
+							"value": "{{name}}"
 						},
 						{
 							"key": "age",
-							"value": "30"
+							"value": "{{age}}"
 						},
 						{
 							"key": "salary",
-							"value": "2000"
+							"value": "{{salary}}"
 						}
 					]
 				}
@@ -271,11 +258,11 @@
 							"});\r",
 							"//Проверить, что 1-й элемент параметра salary равен salary*2 из request (salary забрать из request:\r",
 							"pm.test(\"response salary[1] equals request salary*2\", function(){\r",
-							"    pm.expect(+responseData.salary[1]).to.eql(+requestData.salary*2)\r",
+							"    pm.expect(+responseData.salary[1]).to.eql(requestData.salary*2)\r",
 							"});\r",
 							"//Проверить, что 2-й элемент параметра salary равен salary*3 из request (salary забрать из request):\r",
 							"pm.test(\"response salary[2] equals request salary*3\", function(){\r",
-							"    pm.expect(+responseData.salary[2]).to.eql(+requestData.salary*3)\r",
+							"    pm.expect(+responseData.salary[2]).to.eql(requestData.salary*3)\r",
 							"});\r",
 							"//Создать в окружении переменную name:\r",
 							"//Создать в окружении переменную age:\r",
@@ -299,7 +286,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}:{{port}}/object_info_4?name=Maxim&age=30&salary=2000",
+					"raw": "{{url}}:{{port}}/object_info_4?name={{name}}&age={{age}}&salary={{salary}}",
 					"host": [
 						"{{url}}"
 					],
@@ -310,15 +297,15 @@
 					"query": [
 						{
 							"key": "name",
-							"value": "Maxim"
+							"value": "{{name}}"
 						},
 						{
 							"key": "age",
-							"value": "30"
+							"value": "{{age}}"
 						},
 						{
 							"key": "salary",
-							"value": "2000"
+							"value": "{{salary}}"
 						}
 					]
 				}
@@ -374,19 +361,19 @@
 							"});\r",
 							"//Проверить, что параметр qa_salary_after_6_months равен salary*2 из request (salary забрать из request):\r",
 							"pm.test(\"response salary_after_6_months equals request salary*2\", function(){\r",
-							"    pm.expect(responseData.qa_salary_after_6_months).to.eql(+requestData.salary*2)\r",
+							"    pm.expect(responseData.qa_salary_after_6_months).to.eql(requestData.salary*2)\r",
 							"});\r",
 							"//Проверить, что параметр qa_salary_after_12_months равен salary*2.7 из request (salary забрать из request):\r",
 							"pm.test(\"response qa_salary_after_12_months equals request salary*2.7\", function(){\r",
-							"    pm.expect(responseData.qa_salary_after_12_months).to.eql(+requestData.salary*2.7)\r",
+							"    pm.expect(responseData.qa_salary_after_12_months).to.eql(requestData.salary*2.7)\r",
 							"});\r",
 							"//Проверить, что параметр qa_salary_after_1.5_year равен salary*3.3 из request (salary забрать из request):\r",
 							"pm.test(\"response qa_salary_after_1.5_year equals request salary*3.3\", function(){\r",
-							"    pm.expect(responseData[\"qa_salary_after_1.5_year\"]).to.eql(+requestData.salary*3.3)\r",
+							"    pm.expect(responseData[\"qa_salary_after_1.5_year\"]).to.eql(requestData.salary*3.3)\r",
 							"});\r",
 							"//Проверить, что параметр qa_salary_after_3.5_years равен salary*3.8 из request (salary забрать из request):\r",
 							"pm.test(\"response qa_salary_after_3.5_years equals request salary*3.8\", function(){\r",
-							"    pm.expect(responseData[\"qa_salary_after_3.5_years\"]).to.eql(+requestData.salary*3.8)\r",
+							"    pm.expect(responseData[\"qa_salary_after_3.5_years\"]).to.eql(requestData.salary*3.8)\r",
 							"});\r",
 							"//Проверить, что в параметре person, 1-й элемент из u_name равен salary из request (salary забрать из request):\r",
 							"pm.test(\"response u_name[1] equals request request salary\", function(){\r",
@@ -398,7 +385,7 @@
 							"});\r",
 							"//Проверить, что параметр u_salary_5_years равен salary*4.2 из request (salary забрать из request):\r",
 							"pm.test(\"response u_salary_5_years equals request salary*4.2\", function(){\r",
-							"    pm.expect(responseData.person.u_salary_5_years).to.eql(+requestData.salary*4.2)\r",
+							"    pm.expect(responseData.person.u_salary_5_years).to.eql(requestData.salary*4.2)\r",
 							"});\r",
 							"//***Написать цикл который выведет в консоль по порядку элементы списка из параметра person:\r",
 							"for (i in responseData.person){\r",

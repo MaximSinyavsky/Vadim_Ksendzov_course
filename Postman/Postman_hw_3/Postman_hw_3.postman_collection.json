@@ -38,15 +38,11 @@
 					]
 				},
 				"url": {
-					"raw": "http://162.55.220.72:5005/login",
-					"protocol": "http",
+					"raw": "{{url}}:{{port}}/login",
 					"host": [
-						"162",
-						"55",
-						"220",
-						"72"
+						"{{url}}"
 					],
-					"port": "5005",
+					"port": "{{port}}",
 					"path": [
 						"login"
 					]
@@ -109,19 +105,19 @@
 							"    pm.response.to.have.jsonSchema(schema)\r",
 							"});\r",
 							"//3) В ответе указаны коэффициенты умножения salary, напишите тесты по проверке правильности результата перемножения на коэффициент.\r",
-							"var responseDate = pm.response.json();\r",
-							"var requestDate = JSON.parse(request.data);\r",
+							"var responseData = pm.response.json();\r",
+							"var requestData = JSON.parse(request.data);\r",
 							"pm.test(\"qa_salary_after_6_months multiplication check\", function(){\r",
-							"    pm.expect(requestDate.salary*2).to.have.eql(responseDate.qa_salary_after_6_months)\r",
+							"    pm.expect(requestData.salary*2).to.have.eql(responseData.qa_salary_after_6_months)\r",
 							"});\r",
 							"pm.test(\"qa_salary_after_12_months multiplication check\", function(){\r",
-							"    pm.expect(requestDate.salary*2.9).to.have.eql(responseDate.qa_salary_after_12_months)\r",
+							"    pm.expect(requestData.salary*2.9).to.have.eql(responseData.qa_salary_after_12_months)\r",
 							"});\r",
 							"pm.test(\"u_salary_1.5_year multiplication check\", function(){\r",
-							"    pm.expect(requestDate.salary*4).to.have.eql(responseDate.person.u_salary_1_5_year)\r",
+							"    pm.expect(requestData.salary*4).to.have.eql(responseData.person.u_salary_1_5_year)\r",
 							"});\r",
 							"//4) Достать значение из поля 'u_salary_1.5_year' и передать в поле salary запроса http://162.55.220.72:5005/get_test_user\r",
-							"pm.environment.set(\"u_salary_1.5_year\", responseDate.person.u_salary_1_5_year);"
+							"pm.environment.set(\"u_salary_1.5_year\", responseData.person.u_salary_1_5_year);"
 						],
 						"type": "text/javascript"
 					}
@@ -140,15 +136,11 @@
 					}
 				},
 				"url": {
-					"raw": "http://162.55.220.72:5005/user_info",
-					"protocol": "http",
+					"raw": "{{url}}:{{port}}/user_info",
 					"host": [
-						"162",
-						"55",
-						"220",
-						"72"
+						"{{url}}"
 					],
-					"port": "5005",
+					"port": "{{port}}",
 					"path": [
 						"user_info"
 					]
@@ -191,20 +183,20 @@
 							"    pm.response.to.have.jsonSchema(schema)\r",
 							"});\r",
 							"//3) В ответе указаны коэффициенты умножения salary, напишите тесты по проверке правильности результата перемножения на коэффициент.\r",
-							"var responseDate = pm.response.json();\r",
+							"var responseData = pm.response.json();\r",
 							"var requestData = request.data;\r",
 							"pm.test(\"salary check\", function(){\r",
-							"    pm.expect(responseDate.salary[0]).to.have.eql(+requestData.salary)\r",
+							"    pm.expect(responseData.salary[0]).to.have.eql(+requestData.salary)\r",
 							"});\r",
 							"pm.test(\"salary*2 check\", function(){\r",
-							"    pm.expect(+responseDate.salary[1]).to.have.eql(requestData.salary*2)\r",
+							"    pm.expect(+responseData.salary[1]).to.have.eql(requestData.salary*2)\r",
 							"});\r",
 							"pm.test(\"salary*3 check\", function(){\r",
-							"    pm.expect(+responseDate.salary[2]).to.have.eql(requestData.salary*3)\r",
+							"    pm.expect(+responseData.salary[2]).to.have.eql(requestData.salary*3)\r",
 							"});\r",
 							"//4) проверить, что 2-й элемент массива salary больше 1-го и 0-го\r",
 							"pm.test(\"secons elemet is greater than first element\", function(){\r",
-							"    pm.expect(responseDate.salary[2]>responseDate.salary[1]).to.be.true\r",
+							"    pm.expect(responseData.salary[2]>responseData.salary[1]).to.be.true\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -240,15 +232,11 @@
 					]
 				},
 				"url": {
-					"raw": "http://162.55.220.72:5005/new_data",
-					"protocol": "http",
+					"raw": "{{url}}:{{port}}/new_data",
 					"host": [
-						"162",
-						"55",
-						"220",
-						"72"
+						"{{url}}"
 					],
-					"port": "5005",
+					"port": "{{port}}",
 					"path": [
 						"new_data"
 					]
@@ -295,13 +283,13 @@
 							"    pm.response.to.have.jsonSchema(schema)\r",
 							"});\r",
 							"//3) В ответе указаны коэффициенты умножения weight, напишите тесты по проверке правильности результата перемножения на коэффициент.\r",
-							"var responseDate = pm.response.json();\r",
+							"var responseData = pm.response.json();\r",
 							"var requestData = request.data;\r",
 							"pm.test(\"check daily_food\", function(){\r",
-							"    pm.expect(responseDate.daily_food/requestData.weight).to.have.eql(0.012)\r",
+							"    pm.expect(responseData.daily_food/requestData.weight).to.have.eql(0.012)\r",
 							"});\r",
 							"pm.test(\"daily_sleep\", function(){\r",
-							"    pm.expect(responseDate.daily_sleep/requestData.weight).to.have.eql(2.5)\r",
+							"    pm.expect(responseData.daily_sleep/requestData.weight).to.have.eql(2.5)\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -337,15 +325,11 @@
 					]
 				},
 				"url": {
-					"raw": "http://162.55.220.72:5005/test_pet_info",
-					"protocol": "http",
+					"raw": "{{url}}:{{port}}/test_pet_info",
 					"host": [
-						"162",
-						"55",
-						"220",
-						"72"
+						"{{url}}"
 					],
-					"port": "5005",
+					"port": "{{port}}",
 					"path": [
 						"test_pet_info"
 					]
@@ -404,14 +388,14 @@
 							"    pm.response.to.have.jsonSchema(schema)\r",
 							"});\r",
 							"// 3) Проверить что занчение поля name = значению переменной name из окружения\r",
-							"var responseDate = pm.response.json();\r",
+							"var responseData = pm.response.json();\r",
 							"var requestData = request.data;\r",
 							"pm.test(\"requestName equel responseName\", function(){\r",
-							"    pm.expect(responseDate.name).to.have.eql(pm.environment.get(\"name\"))\r",
+							"    pm.expect(responseData.name).to.have.eql(pm.environment.get(\"name\"))\r",
 							"});\r",
 							"// 4) Проверить что занчение поля age в ответе соответсвует отправленному в запросе значению поля age\r",
 							"pm.test(\"requestAge equel responseAge\", function(){\r",
-							"    pm.expect(responseDate.age).to.have.eql(responseDate.age)\r",
+							"    pm.expect(responseData.age).to.have.eql(+requestData.age)\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -447,15 +431,11 @@
 					]
 				},
 				"url": {
-					"raw": "http://162.55.220.72:5005/get_test_user",
-					"protocol": "http",
+					"raw": "{{url}}:{{port}}/get_test_user",
 					"host": [
-						"162",
-						"55",
-						"220",
-						"72"
+						"{{url}}"
 					],
-					"port": "5005",
+					"port": "{{port}}",
 					"path": [
 						"get_test_user"
 					]
@@ -495,15 +475,11 @@
 					]
 				},
 				"url": {
-					"raw": "http://162.55.220.72:5005/currency",
-					"protocol": "http",
+					"raw": "{{url}}:{{port}}/currency",
 					"host": [
-						"162",
-						"55",
-						"220",
-						"72"
+						"{{url}}"
 					],
-					"port": "5005",
+					"port": "{{port}}",
 					"path": [
 						"currency"
 					]
@@ -527,18 +503,29 @@
 				}
 			],
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "auth_token",
+							"value": "{{token}}",
+							"type": "default"
+						},
+						{
+							"key": "curr_code",
+							"value": "5005",
+							"type": "default"
+						}
+					]
+				},
 				"url": {
-					"raw": "http://162.55.220.72:5005/curr_byn",
-					"protocol": "http",
+					"raw": "{{url}}:{{port}}/curr_byn",
 					"host": [
-						"162",
-						"55",
-						"220",
-						"72"
+						"{{url}}"
 					],
-					"port": "5005",
+					"port": "{{port}}",
 					"path": [
 						"curr_byn"
 					]

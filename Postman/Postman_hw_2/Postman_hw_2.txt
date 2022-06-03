@@ -1,5 +1,4 @@
 http://162.55.220.72:5005/first
-//Отправить запрос.
 //Статус код 200:
 pm.test("Status code is 200", function () {
     pm.response.to.have.status(200);
@@ -8,12 +7,8 @@ pm.test("Status code is 200", function () {
 pm.test("Body is correct", function () {
 pm.response.to.have.body("This is the first responce from server!")
 });
-
-
-
-
-http://162.55.220.72:5005/object_info_3
-//Отправить запрос.
+==================================================================
+http://162.55.220.72:5005/user_info_3
 //Статус код 200:
 pm.test("Status code is 200", function () {
     pm.response.to.have.status(200);
@@ -26,7 +21,7 @@ pm.test("manual request name equals response name", function () {
 });
 //Проверить, что age в ответе равно age s request (age вбить руками):
 pm.test("manual request age equals response age", function(){
-    pm.expect(+responseData.age).to.eql(30)
+    pm.expect(responseData.age).to.eql(30)
 });
 //Проверить, что salary в ответе равно salary s request (salary вбить руками):
 pm.test("manual request salary equals response salary", function(){
@@ -40,7 +35,7 @@ pm.test("request name equals response name", function(){
 });
 //Проверить, что age в ответе равно age s request (age забрать из request):
 pm.test("request age equals response age", function () {
-    pm.expect(requestData.age).to.eql(responseData.age)
+    pm.expect(+requestData.age).to.eql(responseData.age)
 });
 //Проверить, что salary в ответе равно salary s request (salary забрать из request):
 pm.test("request salary equals response salary", function () {
@@ -50,13 +45,10 @@ pm.test("request salary equals response salary", function () {
 console.log(responseData.family);
 //Проверить что u_salary_1_5_year в ответе равно salary*4 (salary забрать из request):
 pm.test("u_salary_1_5_year in responseData equals salary*4", function(){
-    pm.expect(responseData.family.u_salary_1_5_year).to.eql(+requestData.salary*4)
+    pm.expect(responseData.family.u_salary_1_5_year).to.eql(requestData.salary*4)
 });
-
-
-
-http://162.55.220.72:5005/object_info_4
-//Отправить запрос.
+==================================================================================
+http://162.55.220.72:5005/object_info_3
 //Статус код 200:
 pm.test("Status code is 200", function () {
     pm.response.to.have.status(200);
@@ -71,7 +63,7 @@ pm.test("response name equals request name", function () {
 });
 //Проверить, что age в ответе равно age s request (age забрать из request):
 pm.test("response age equals request age", function () {
-    pm.expect(responseData.age).to.eql(requestData.age)
+    pm.expect(responseData.age).to.eql(+requestData.age)
 });
 //Проверить, что salary в ответе равно salary s request (salary забрать из request):
 pm.test("response salary equals request salary", function (){
@@ -101,9 +93,7 @@ pm.test("age have parameter 4 v1", function(){
 pm.test("age have parameter 4 v2", function(){
     pm.expect(responseData.family.pets.dog).to.include({"age": 4})
 });
-
-
-
+======================================================================
 http://162.55.220.72:5005/object_info_4
 //Статус код 200:
 pm.test("Status code is 200", function () {
@@ -137,11 +127,11 @@ pm.test("response salary[0] equals request salary", function(){
 });
 //Проверить, что 1-й элемент параметра salary равен salary*2 из request (salary забрать из request:
 pm.test("response salary[1] equals request salary*2", function(){
-    pm.expect(+responseData.salary[1]).to.eql(+requestData.salary*2)
+    pm.expect(+responseData.salary[1]).to.eql(requestData.salary*2)
 });
 //Проверить, что 2-й элемент параметра salary равен salary*3 из request (salary забрать из request):
 pm.test("response salary[2] equals request salary*3", function(){
-    pm.expect(+responseData.salary[2]).to.eql(+requestData.salary*3)
+    pm.expect(+responseData.salary[2]).to.eql(requestData.salary*3)
 });
 //Создать в окружении переменную name:
 //Создать в окружении переменную age:
@@ -156,8 +146,7 @@ pm.environment.set("salary", responseData.salary[0]);
 for (i in responseData.salary){
     console.log(responseData.salary[i])
 }
-
-
+=========================================================================
 http://162.55.220.72:5005/user_info_2
 //Вставить параметр salary из окружения в request:
 //Вставить параметр age из окружения в age:
@@ -201,19 +190,19 @@ pm.test("response start_qa_salary equals request salary", function(){
 });
 //Проверить, что параметр qa_salary_after_6_months равен salary*2 из request (salary забрать из request):
 pm.test("response salary_after_6_months equals request salary*2", function(){
-    pm.expect(responseData.qa_salary_after_6_months).to.eql(+requestData.salary*2)
+    pm.expect(responseData.qa_salary_after_6_months).to.eql(requestData.salary*2)
 });
 //Проверить, что параметр qa_salary_after_12_months равен salary*2.7 из request (salary забрать из request):
 pm.test("response qa_salary_after_12_months equals request salary*2.7", function(){
-    pm.expect(responseData.qa_salary_after_12_months).to.eql(+requestData.salary*2.7)
+    pm.expect(responseData.qa_salary_after_12_months).to.eql(requestData.salary*2.7)
 });
 //Проверить, что параметр qa_salary_after_1.5_year равен salary*3.3 из request (salary забрать из request):
 pm.test("response qa_salary_after_1.5_year equals request salary*3.3", function(){
-    pm.expect(responseData["qa_salary_after_1.5_year"]).to.eql(+requestData.salary*3.3)
+    pm.expect(responseData["qa_salary_after_1.5_year"]).to.eql(requestData.salary*3.3)
 });
 //Проверить, что параметр qa_salary_after_3.5_years равен salary*3.8 из request (salary забрать из request):
 pm.test("response qa_salary_after_3.5_years equals request salary*3.8", function(){
-    pm.expect(responseData["qa_salary_after_3.5_years"]).to.eql(+requestData.salary*3.8)
+    pm.expect(responseData["qa_salary_after_3.5_years"]).to.eql(requestData.salary*3.8)
 });
 //Проверить, что в параметре person, 1-й элемент из u_name равен salary из request (salary забрать из request):
 pm.test("response u_name[1] equals request request salary", function(){
@@ -225,7 +214,7 @@ pm.test("response u_age equals request age", function(){
 });
 //Проверить, что параметр u_salary_5_years равен salary*4.2 из request (salary забрать из request):
 pm.test("response u_salary_5_years equals request salary*4.2", function(){
-    pm.expect(responseData.person.u_salary_5_years).to.eql(+requestData.salary*4.2)
+    pm.expect(responseData.person.u_salary_5_years).to.eql(requestData.salary*4.2)
 });
 //***Написать цикл который выведет в консоль по порядку элементы списка из параметра person:
 for (i in responseData.person){

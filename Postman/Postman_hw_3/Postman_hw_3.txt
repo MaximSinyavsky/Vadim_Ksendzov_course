@@ -73,19 +73,19 @@ pm.test("Check json schema", function(){
     pm.response.to.have.jsonSchema(schema)
 });
 //3) В ответе указаны коэффициенты умножения salary, напишите тесты по проверке правильности результата перемножения на коэффициент.
-var responseDate = pm.response.json();
+var responseData = pm.response.json();
 var requestDate = JSON.parse(request.data);
 pm.test("qa_salary_after_6_months multiplication check", function(){
-    pm.expect(requestDate.salary*2).to.have.eql(responseDate.qa_salary_after_6_months)
+    pm.expect(requestDate.salary*2).to.have.eql(responseData.qa_salary_after_6_months)
 });
 pm.test("qa_salary_after_12_months multiplication check", function(){
-    pm.expect(requestDate.salary*2.9).to.have.eql(responseDate.qa_salary_after_12_months)
+    pm.expect(requestDate.salary*2.9).to.have.eql(responseData.qa_salary_after_12_months)
 });
 pm.test("u_salary_1.5_year multiplication check", function(){
-    pm.expect(requestDate.salary*4).to.have.eql(responseDate.person.u_salary_1_5_year)
+    pm.expect(requestDate.salary*4).to.have.eql(responseData.person.u_salary_1_5_year)
 });
 //4) Достать значение из поля 'u_salary_1.5_year' и передать в поле salary запроса http://162.55.220.72:5005/get_test_user
-pm.environment.set("u_salary_1.5_year", responseDate.person.u_salary_1_5_year);
+pm.environment.set("u_salary_1.5_year", responseData.person.u_salary_1_5_year);
 =============================================================
 3) http://162.55.220.72:5005/new_data
 req.
@@ -129,20 +129,20 @@ pm.test("Check json schema", function(){
     pm.response.to.have.jsonSchema(schema)
 });
 //3) В ответе указаны коэффициенты умножения salary, напишите тесты по проверке правильности результата перемножения на коэффициент.
-var responseDate = pm.response.json();
+var responseData = pm.response.json();
 var requestData = request.data;
 pm.test("salary check", function(){
-    pm.expect(responseDate.salary[0]).to.have.eql(+requestData.salary)
+    pm.expect(responseData.salary[0]).to.have.eql(+requestData.salary)
 });
 pm.test("salary*2 check", function(){
-    pm.expect(+responseDate.salary[1]).to.have.eql(requestData.salary*2)
+    pm.expect(+responseData.salary[1]).to.have.eql(requestData.salary*2)
 });
 pm.test("salary*3 check", function(){
-    pm.expect(+responseDate.salary[2]).to.have.eql(requestData.salary*3)
+    pm.expect(+responseData.salary[2]).to.have.eql(requestData.salary*3)
 });
 //4) проверить, что 2-й элемент массива salary больше 1-го и 0-го
 pm.test("secons elemet is greater than first element", function(){
-    pm.expect(responseDate.salary[2]>responseDate.salary[1]).to.be.true
+    pm.expect(responseData.salary[2]>responseData.salary[1]).to.be.true
 });
 =============================================================
 4) http://162.55.220.72:5005/test_pet_info
@@ -192,13 +192,13 @@ pm.test("Check json schema", function(){
     pm.response.to.have.jsonSchema(schema)
 });
 //3) В ответе указаны коэффициенты умножения weight, напишите тесты по проверке правильности результата перемножения на коэффициент.
-var responseDate = pm.response.json();
+var responseData = pm.response.json();
 var requestData = request.data;
 pm.test("check daily_food", function(){
-    pm.expect(responseDate.daily_food/requestData.weight).to.have.eql(0.012)
+    pm.expect(responseData.daily_food/requestData.weight).to.have.eql(0.012)
 });
 pm.test("daily_sleep", function(){
-    pm.expect(responseDate.daily_sleep/requestData.weight).to.have.eql(2.5)
+    pm.expect(responseData.daily_sleep/requestData.weight).to.have.eql(2.5)
 });
 =============================================================
 5) http://162.55.220.72:5005/get_test_user
@@ -262,14 +262,14 @@ pm.test("Check json schema", function(){
     pm.response.to.have.jsonSchema(schema)
 });
 // 3) Проверить что занчение поля name = значению переменной name из окружения
-var responseDate = pm.response.json();
+var responseData = pm.response.json();
 var requestData = request.data;
 pm.test("requestName equel responseName", function(){
-    pm.expect(responseDate.name).to.have.eql(pm.environment.get("name"))
+    pm.expect(responseData.name).to.have.eql(pm.environment.get("name"))
 });
 // 4) Проверить что занчение поля age в ответе соответсвует отправленному в запросе значению поля age
 pm.test("requestAge equel responseAge", function(){
-    pm.expect(responseDate.age).to.have.eql(responseDate.age)
+    pm.expect(responseData.age).to.have.eql(responseData.age)
 });
 =============================================================
 6) http://162.55.220.72:5005/currency
