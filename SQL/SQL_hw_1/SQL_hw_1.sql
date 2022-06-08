@@ -1,119 +1,72 @@
-SQL_HW_1
-
- 1. Р’С‹РІРµСЃС‚Рё РІСЃРµ РїРѕР»СЏ Рё РІСЃРµ СЃС‚СЂРѕРєРё:
-SELECT * FROM students;
- 2. Р’С‹РІРµСЃС‚Рё РІСЃРµС… СЃС‚СѓРґРµРЅС‚РѕРІ РІ С‚Р°Р±Р»РёС†Рµ:
-SELECT name 
-FROM students;
- 3. Р’С‹РІРµСЃС‚Рё С‚РѕР»СЊРєРѕ Id РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№:
-SELECT id 
-FROM students;
- 4. Р’С‹РІРµСЃС‚Рё С‚РѕР»СЊРєРѕ РёРјСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№:
- SELECT name 
- FROM students;
- 5. Р’С‹РІРµСЃС‚Рё С‚РѕР»СЊРєРѕ email РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№:
-SELECT email 
-FROM students;
- 6. Р’С‹РІРµСЃС‚Рё РёРјСЏ Рё email РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№:
-SELECT name, email
-FROM students;
- 7. Р’С‹РІРµСЃС‚Рё id, РёРјСЏ, email Рё РґР°С‚Сѓ СЃРѕР·РґР°РЅРёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№:
-SELECT id, name, email, created_on
-FROM students;
- 8. Р’С‹РІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РіРґРµ password 12333:
-SELECT name
-FROM students
-WHERE password = '12333'; 
- 9. Р’С‹РІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РєРѕС‚РѕСЂС‹Рµ Р±С‹Р»Рё СЃРѕР·РґР°РЅС‹ 2021-03-26 00:00:00:
-SELECT name
-FROM students
-WHERE created_on = '2021-03-26 00:00:00';
- 10. Р’С‹РІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РіРґРµ РІ РёРјРµРЅРё РµСЃС‚СЊ СЃР»РѕРІРѕ РђРЅРЅР°:
-SELECT name
-FROM students
-WHERE name like '%Anna%';
- 11. Р’С‹РІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РіРґРµ РІ РёРјРµРЅРё РІ РєРѕРЅС†Рµ РµСЃС‚СЊ 8:
-SELECT name
-FROM students
-WHERE name like '%8';
- 12. Р’С‹РІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РіРґРµ РІ РёРјРµРЅРё РІ РµСЃС‚СЊ Р±СѓРєРІР° Р°:
-SELECT name
-FROM students
-WHERE name like '%a%';
- 13. Р’С‹РІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РєРѕС‚РѕСЂС‹Рµ Р±С‹Р»Рё СЃРѕР·РґР°РЅС‹ 2021-07-12 00:00:00:
-SELECT name
-FROM students
-WHERE created_on = '2021-07-12 00:00:00';
- 14. Р’С‹РІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РєРѕС‚РѕСЂС‹Рµ Р±С‹Р»Рё СЃРѕР·РґР°РЅС‹ 2021-07-12 00:00:00 Рё РёРјРµСЋС‚ РїР°СЂРѕР»СЊ 1m313:
-SELECT name
-FROM students
-WHERE created_on = '2021-07-12 00:00:00' and password = '1m313';
- 15. Р’С‹РІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РєРѕС‚РѕСЂС‹Рµ Р±С‹Р»Рё СЃРѕР·РґР°РЅС‹ 2021-07-12 00:00:00 Рё Сѓ РєРѕС‚РѕСЂС‹С… РІ РёРјРµРЅРё РµСЃС‚СЊ СЃР»РѕРІРѕ Andrey:
-SELECT name
-FROM students
-WHERE created_on = '2021-07-12 00:00:00' and name like '%Andrey%'; 
- 16. Р’С‹РІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РєРѕС‚РѕСЂС‹Рµ Р±С‹Р»Рё СЃРѕР·РґР°РЅС‹ 2021-07-12 00:00:00 Рё Сѓ РєРѕС‚РѕСЂС‹С… РІ РёРјРµРЅРё РµСЃС‚СЊ С†РёС„СЂР° 8:
-SELECT name
-FROM students
-WHERE created_on = '2021-07-12 00:00:00' and name like '%8%'; 
- 17. Р’С‹РІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Сѓ РєРѕС‚РѕСЂС‹С… id СЂР°РІРµРЅ 110:
-SELECT name
-FROM students
-WHERE id = '110';
- 18. Р’С‹РІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Сѓ РєРѕС‚РѕСЂС‹С… id СЂР°РІРµРЅ 153:
-SELECT name
-FROM students
-WHERE id = '153';
- 19. Р’С‹РІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Сѓ РєРѕС‚РѕСЂС‹С… id Р±РѕР»СЊС€Рµ 140:
-SELECT name
-FROM students
-WHERE id > '130';
- 20. Р’С‹РІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Сѓ РєРѕС‚РѕСЂС‹С… id РјРµРЅСЊС€Рµ 130:
-SELECT name
-FROM students
-WHERE id < '130';
- 21. Р’С‹РІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Сѓ РєРѕС‚РѕСЂС‹С… id РјРµРЅСЊС€Рµ 127 РёР»Рё Р±РѕР»СЊС€Рµ 188:
-SELECT name
-FROM students
-WHERE id < '127' or id > 188;
- 22. Р’С‹РІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Сѓ РєРѕС‚РѕСЂС‹С… id РјРµРЅСЊС€Рµ Р»РёР±Рѕ СЂР°РІРЅРѕ 137:
-SELECT name
-FROM students
-WHERE id <= '137'
- 23. Р’С‹РІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Сѓ РєРѕС‚РѕСЂС‹С… id Р±РѕР»СЊС€Рµ Р»РёР±Рѕ СЂР°РІРЅРѕ 137:
-SELECT name
-FROM students
-WHERE id >= '137' 
- 24. Р’С‹РІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Сѓ РєРѕС‚РѕСЂС‹С… id Р±РѕР»СЊС€Рµ 180 РЅРѕ РјРµРЅСЊС€Рµ 190:
-SELECT name
-FROM students
-WHERE  id < '180' and id > '190';
- 25. Р’С‹РІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Сѓ РєРѕС‚РѕСЂС‹С… id РјРµР¶РґСѓ 180 Рё 190:
-SELECT name
-FROM students
-WHERE  id BETWEEN '180' and '190';
- 26. Р’С‹РІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РіРґРµ password СЂР°РІРµРЅ 12333, 1m313, 123313:
-SELECT name
-FROM students
-WHERE password IN ('12333', '1m313', '123313');
- 27. Р’С‹РІРµСЃС‚Рё РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РіРґРµ created_on СЂР°РІРµРЅ 2020-10-03 00:00:00, 2021-05-19 00:00:00, 2021-03-26 00:00:00:
-SELECT name
-FROM students
-WHERE created_on IN ('2020-10-03 00:00:00', '2021-05-19 00:00:00', '2021-03-26 00:00:00');
- 28. Р’С‹РІРµСЃС‚Рё РјРёРЅРёРјР°Р»СЊРЅС‹Р№ id:
-SELECT MIN(id) minId
-FROM students;
- 29. Р’С‹РІРµСЃС‚Рё РјР°РєСЃРёРјР°Р»СЊРЅС‹Р№:
-SELECT MAX(id) maxId
-FROM students;
- 30. Р’С‹РІРµСЃС‚Рё РєРѕР»РёС‡РµСЃС‚РІРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№:
-SELECT COUNT(name) countUsers
-FROM students;
- 31. Р’С‹РІРµСЃС‚Рё id РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ, РёРјСЏ, РґР°С‚Сѓ СЃРѕР·РґР°РЅРёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ. РћС‚СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ РїРѕ РїРѕСЂСЏРґРєСѓ РІРѕР·СЂР°СЃС‚Р°РЅРёСЏ РґР°С‚С‹ РґРѕР±Р°РІР»РµРЅРёСЏ РїРѕР»СЊР·РѕРІР°С‚Р»РµР»СЏ:
-SELECT id, name, created_on
-FROM students
-ORDER BY created_on;
- 32. Р’С‹РІРµСЃС‚Рё id РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ, РёРјСЏ, РґР°С‚Сѓ СЃРѕР·РґР°РЅРёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ. РћС‚СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ РїРѕ РїРѕСЂСЏРґРєСѓ СѓР±С‹РІР°РЅРёСЏ РґР°С‚С‹ РґРѕР±Р°РІР»РµРЅРёСЏ РїРѕР»СЊР·РѕРІР°С‚Р»РµР»СЏ:
-SELECT id, name, created_on
-FROM students
-ORDER BY created_on DESC;
+ 
+SQL_hw_1
+https://docs.google.com/spreadsheets/d/1zKgaE7GfNU5vYeZl9FAua9AmqfQNSwrlaWMfFQX237s/edit#gid=27837574
+host: 159.69.151.133
+ port: 5056
+ user_name: padawan_user_29
+ password: 123
+ 
+1. Вывести все поля и все строки;
+select * from students;
+ 2. Вывести всех студентов в таблице;
+select name from students; 
+ 3. Вывести только Id пользователей;
+select id from students;  
+ 4. Вывести только имя пользователей;
+select name from students;  
+ 5. Вывести только email пользователей;
+select email from students; 
+ 6. Вывести имя и email пользователей;
+select name, email from students; 
+ 7. Вывести id, имя, email и дату создания пользователей;
+select name, email, created_on from students; 
+ 8. Вывести пользователей где password 12333;
+select name from students where password = '12333';
+ 9. Вывести пользователей которые были созданы 2021-03-26 00:00:00;
+select name from students where created_on = '2021-03-26 00:00:00'; 
+ 10. Вывести пользователей где в имени есть слово Анна;
+select name from students where name like '%Анна%'; 
+ 11. Вывести пользователей где в имени в конце есть 8;
+select name from students where name like '%8'; 
+ 12. Вывести пользователей где в имени в есть буква а;
+select name from students where name like '%a%'; 
+ 13. Вывести пользователей которые были созданы 2021-07-12 00:00:00;
+select name from students where created_on = '2021-07-12 00:00:00'; 
+ 14. Вывести пользователей которые были созданы 2021-07-12 00:00:00 и имеют пароль 1m313;
+select name from students where created_on = '2021-07-12 00:00:00' and password = '1m313';
+ 15. Вывести пользователей которые были созданы 2021-07-12 00:00:00 и у которых в имени есть слово Andrey;
+select name from students where created_on = '2021-07-12 00:00:00' and name like '%Andrey%';
+ 16. Вывести пользователей которые были созданы 2021-07-12 00:00:00 и у которых в имени есть цифра 8;
+select name from students where created_on = '2021-07-12 00:00:00' and name like '%8%';
+ 17. Вывести пользователя у которых id равен 110;
+select name from students where id = '110'; 
+ 18. Вывести пользователя у которых id равен 153;
+select name from students where id = '110';  
+ 19. Вывести пользователя у которых id больше 140;
+select name from students where id > '140';  
+ 20. Вывести пользователя у которых id меньше 130;
+select name from students where id < '130'; 
+ 21. Вывести пользователя у которых id меньше 127 или больше 188;
+select name from students where id < '127' or id > '188'; 
+ 22. Вывести пользователя у которых id меньше либо равно 137;
+select name from students where id <= '137';  
+ 23. Вывести пользователя у которых id больше либо равно 137;
+select name from students where id >= '137'; 
+ 24. Вывести пользователя у которых id больше 180 но меньше 190;
+select name from students where id > '180' and id < '190'; 
+ 25. Вывести пользователя у которых id между 180 и 190;
+select name from students where id between '180' and '190'; 
+ 26. Вывести пользователей где password равен 12333, 1m313, 123313;
+select name from students where password in ('12333', '1m313', '123313'); 
+ 27. Вывести пользователей где created_on равен 2020-10-03 00:00:00, 2021-05-19 00:00:00, 2021-03-26 00:00:00;
+select name from students where created_on in ('2020-10-03 00:00:00', '2021-05-19 00:00:00', '2021-03-26 00:00:00'); 
+ 28. Вывести минимальный id;
+select min(id) minid from students; 
+ 29. Вывести максимальный;
+select max(id) maxid from students; 
+ 30. Вывести количество пользователей;
+select count(name) countusers from students;  
+ 31. Вывести id пользователя, имя, дату создания пользователя. Отсортировать по порядку возрастания даты добавления пользоватлеля;
+select id, name, created_on from students order by created_on;
+ 32. Вывести id пользователя, имя, дату создания пользователя. Отсортировать по порядку убывания даты добавления пользоватлеля;
+select id, name, created_on from students order by created_on desc;  
