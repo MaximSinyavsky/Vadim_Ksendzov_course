@@ -1,6 +1,6 @@
 SQL_HW_1
 
-https://docs.google.com/spreadsheets/d/1zKgaE7GfNU5vYeZl9FAua9AmqfQNSwrlaWMfFQX237s/edit#gid=27837574
+[SQL_HW_1_task](https://docs.google.com/spreadsheets/d/1zKgaE7GfNU5vYeZl9FAua9AmqfQNSwrlaWMfFQX237s/edit#gid=27837574)
 
 Создать SQL файл в котором под каждой командой напишите sql запрос который выполнит команду.
 SQL файл выгружайте на гит и скидывайте ссылки на проверку.
