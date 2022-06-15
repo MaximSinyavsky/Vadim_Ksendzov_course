@@ -1,4 +1,4 @@
-# SQL_hw_part_1_DDL
+# SQL_hw_part_2_JOIN
 
 --Подключится к 
 --Host: 159.69.151.133
