@@ -179,7 +179,7 @@ left join salary on salary.id = employee_salary.id
 where role_name like '%JavaScript%';
 
  --23. Вывести минимальную ЗП QA инженеров
-select min(monthly_salary) minJsSalary
+select min(monthly_salary) minQaSalary
 from employees
 join roles_employee on employees.id = roles_employee.employee_id
 join roles on roles_employee.role_id = roles.id
@@ -188,7 +188,7 @@ left join salary on salary.id = employee_salary.id
 where role_name like '%QA%';
 
  --24. Вывести максимальную ЗП QA инженеров
-select max(monthly_salary) maxJsSalary
+select max(monthly_salary) maxQaSalary
 from employees
 join roles_employee on employees.id = roles_employee.employee_id
 join roles on roles_employee.role_id = roles.id
@@ -218,7 +218,7 @@ join roles on roles_employee.role_id = roles.id
 where role_name like '%developer%';
 
  --28. Вывести фонд (сумму) зарплаты разработчиков.
-select sum(monthly_salary) sumJsSalary
+select sum(monthly_salary) sumDeveloperSalary
 from employees
 join roles_employee on employees.id = roles_employee.employee_id
 join roles on roles_employee.role_id = roles.id
