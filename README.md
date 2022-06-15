@@ -17,4 +17,5 @@
 10. [Postman №3](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/Postman/Postman_hw_3);
 11. [Form testing](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/formTasting);
 12. [SQL №1](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/SQL/SQL_hw_1);
-13. [SQL №2 DDL](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/SQL/SQL_hw_2_DDL_part_1);
+13. [SQL №2 part 1 DDL](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/SQL/SQL_hw_2_part_1_DDL);
+14. [SQL №2 part 2 JOIN](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/SQL/SQL_hw_2_part_2_JOIN);
