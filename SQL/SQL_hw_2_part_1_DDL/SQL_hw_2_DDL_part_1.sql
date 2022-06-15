@@ -1,5 +1,11 @@
 --SQL_DDL
 --Первая часть.
+--Подключится к 
+--Host: 159.69.151.133
+--Port: 5056
+--DB: qa_ddl_28_29
+--User: padawan_user_29
+--Pass: 123
 --Таблица employees
 --1) Создать таблицу employees
 -- id. serial,  primary key,
