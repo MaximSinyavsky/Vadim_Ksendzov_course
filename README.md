@@ -6,17 +6,21 @@
 
 В данном разделе представлены решения заданий в рамках [курса тестирования ПО Вадима Ксендзова](https://ksendzov.com/):
 1. [Testing theory](https://github.com/MaximSinyavsky/Testing-theory);
-2. [Linux terminal (GitBush) №1](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/Linux_terminal/Lunix_terminal_hw_1);
-3. [Linux terminal (GitBush) №2](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/Linux_terminal/Lunix_terminal_hw_2);
-4. [GitHub №1](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/GitHub/GitHub_hw_1);
-5. [GitHub №2](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/GitHub/GitHub_hw_2);
-6. [JavaScript №1](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/JavaScript/JavaScript_hw_1);
-7. [JavaScript №1*](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/JavaScript/JavaScript_hw_1ex);
-8. [JavaScript №2](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/JavaScript/JavaScript_hw_2);
-9. [Postman №1](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/Postman/Postman_hw_1);
-10. [Postman №2](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/Postman/Postman_hw_2);
-11. [Postman №3](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/Postman/Postman_hw_3);
-12. [Form testing](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/formTasting);
-13. [SQL №1](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/SQL/SQL_hw_1);
-14. [SQL №2 part 1 DDL](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/SQL/SQL_hw_2_part_1_DDL);
-15. [SQL №2 part 2 JOIN](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/SQL/SQL_hw_2_part_2_JOIN);
+2. [Terminal linux №1](https://github.com/MaximSinyavsky/Terminal-linux);
+3. [Terminal linux №2](https://github.com/MaximSinyavsky/Terminal-linux);
+4. [Git №1](https://github.com/MaximSinyavsky/Git);
+5. [Git №2](https://github.com/MaximSinyavsky/Git);
+6. [Client Server](https://github.com/MaximSinyavsky/Client-Server);
+7. [SQL №1](https://github.com/MaximSinyavsky/SQL);
+8. [SQL №2 DDL](https://github.com/MaximSinyavsky/SQL);
+9. [SQL №3 JOIN](https://github.com/MaximSinyavsky/SQL);
+10. [Postman №1](https://github.com/MaximSinyavsky/Postman);
+11. [Postman №2](https://github.com/MaximSinyavsky/Postman);
+12. [Postman №3](https://github.com/MaximSinyavsky/Postman);
+13. [Mobile testing №1](https://github.com/MaximSinyavsky/Mobile-testing);
+14. [Mobile testing №2](https://github.com/MaximSinyavsky/Mobile-testing);
+15. [Mobile testing №3](https://github.com/MaximSinyavsky/Mobile-testing);
+16. [JavaScript №1](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/JavaScript/JavaScript_hw_1);
+17. [JavaScript №1*](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/JavaScript/JavaScript_hw_1ex);
+18. [JavaScript №2](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/JavaScript/JavaScript_hw_2);
+19. [Form testing](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/formTasting).
