@@ -5,7 +5,7 @@
 </h1>
 
 В данном разделе представлены решения заданий в рамках [курса тестирования ПО Вадима Ксендзова](https://ksendzov.com/):
-1. [Testing theory](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/Testing_theory);
+1. [Testing theory](https://github.com/MaximSinyavsky/Testing-theory);
 2. [Linux terminal (GitBush) №1](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/Linux_terminal/Lunix_terminal_hw_1);
 3. [Linux terminal (GitBush) №2](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/Linux_terminal/Lunix_terminal_hw_2);
 4. [GitHub №1](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/GitHub/GitHub_hw_1);
