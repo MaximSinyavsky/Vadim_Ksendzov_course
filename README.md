@@ -18,7 +18,7 @@
 11. [Postman №2](https://github.com/MaximSinyavsky/Postman);
 12. [Postman №3](https://github.com/MaximSinyavsky/Postman);
 13. [Mobile testing №1](https://github.com/MaximSinyavsky/Mobile-testing);
-14. [Mobile testing №2](https://github.com/MaximSinyavsky/Mobile-testing);
+14. [ADB №1](https://github.com/MaximSinyavsky/ADB);
 15. [Mobile testing №3](https://github.com/MaximSinyavsky/Mobile-testing);
 16. [JavaScript №1](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/JavaScript/JavaScript_hw_1);
 17. [JavaScript №1*](https://github.com/MaximSinyavsky/Vadim_Ksendzov_course/tree/main/JavaScript/JavaScript_hw_1ex);
