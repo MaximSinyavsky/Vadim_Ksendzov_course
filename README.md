@@ -27,7 +27,11 @@
 
 Cертификаты по темам:
 ![Testing-theory certificate](https://github.com/MaximSinyavsky/MaximSinyavsky/blob/main/assets/certificates/vadim-ksendzov-course-certificate-maxim-sinyavsky-test-theory.png)
+
 ![Linux Terminal certificate](https://github.com/MaximSinyavsky/MaximSinyavsky/blob/main/assets/certificates/vadim-ksendzov-course-certificate-maxim-sinyavsky-linux-terminal.png)
+
 ![Git certificate](https://github.com/MaximSinyavsky/MaximSinyavsky/blob/main/assets/certificates/vadim-ksendzov-course-certificate-maxim-sinyavsky-git.png)
+
 ![Postman certificate](https://github.com/MaximSinyavsky/MaximSinyavsky/blob/main/assets/certificates/vadim-ksendzov-course-certificate-maxim-sinyavsky-postman.png)
+
 ![sql certificate](https://github.com/MaximSinyavsky/MaximSinyavsky/blob/main/assets/certificates/vadim-ksendzov-course-certificate-maxim-sinyavsky-sql.png)
